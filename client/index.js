@@ -2,14 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ApolloClient from 'apollo-client'
 import {ApolloProvider} from 'react-apollo'
-import SongList from './components/SongList'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import App from "./components/App"
 
 const client = new ApolloClient({})
 
 const Root = () => (
   <ApolloProvider
     client={client}>
-    <SongList />
+    <Router>
+      <Route component={App} path="/" />
+    </Router>
   </ApolloProvider>
 )
 
