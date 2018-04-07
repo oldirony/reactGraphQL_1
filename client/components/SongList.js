@@ -20,7 +20,7 @@ class SongList extends Component {
     return (
       <div>
         <h1>List of songs</h1>
-        <hr/>
+
         <ul className="collection">
           {this.renderSongs()}
         </ul>
