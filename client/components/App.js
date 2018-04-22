@@ -8,7 +8,7 @@ const App = ({match}) => {
   return (
     <div className="container">
       <Route path="/" component={SongList} exact />
-      <Route path="/song/create" component={SongCreate} />
+      <Route path="/songs/new" component={SongCreate} />
     </div>
   )
 }

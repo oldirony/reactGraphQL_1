@@ -1,12 +1,15 @@
 import React, {Component} from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { Link, Redirect } from 'react-router-dom'
+import fetchSongsQuery from '../queries/fetchSongs'
 
 class SongCreate extends Component {
   constructor() {
     super()
     this.state = {
       songTitle: '',
+      redirectBack: false,
     }
   }
 
@@ -24,14 +27,28 @@ class SongCreate extends Component {
     this.props.mutate({
       variables: {
         title: this.state.songTitle,
-      }
-    })
+      },
+      refetchQueries: [{
+        query: fetchSongsQuery,
+      }]
+    }).then(this.handleSongAdded.bind(this))
+  }
+
+  handleSongAdded(what) {
+
+
+    console.log(what)
+
+    return this;
   }
 
   render() {
+    if (this.state.redirectBack) return <Redirect to='/' push />
+
     return (
       <div>
-        <h1>Create</h1>
+        <Link to='/'>Back</Link>
+        <h1>Create song</h1>
         <form onSubmit={e => this.handleSubmit(e)}>
           <label htmlFor='songTitle'>Song title</label>
           <input id='songTitle'
