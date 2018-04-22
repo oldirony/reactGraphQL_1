@@ -34,10 +34,10 @@ class SongCreate extends Component {
     }).then(this.handleSongAdded.bind(this))
   }
 
-  handleSongAdded(what) {
-
-
-    console.log(what)
+  handleSongAdded() {
+    this.setState({
+      redirectBack: true,
+    })
 
     return this;
   }
