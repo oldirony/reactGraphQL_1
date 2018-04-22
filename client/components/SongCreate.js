@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Link, Redirect } from 'react-router-dom'
 import fetchSongsQuery from '../queries/fetchSongs'
 
-class SongCreate extends Component {
+class SongCreate extends PureComponent {
   constructor() {
     super()
     this.state = {

@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { graphql } from 'react-apollo'
 import { Link } from 'react-router-dom'
 import gql from 'graphql-tag'
 import query from '../queries/fetchSongs'
 
-class SongList extends Component {
+class SongList extends PureComponent {
   renderSongs() {
     return this.props.data.songs.map(({ id, title }) => (
       <li
