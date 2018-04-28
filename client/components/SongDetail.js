@@ -3,14 +3,9 @@ import { graphql } from 'react-apollo'
 import { Link } from 'react-router-dom'
 import query from '../queries/fetchSong'
 import LyricCreateForm from "./LyricCreateForm"
+import LyricList from "./LyricList"
 
 class SongDetail extends PureComponent {
-  renderLyrics() {
-    return this.props.data.song.lyrics
-      .map((lyric, index) => (
-        <li key={index}>{lyric.content}</li>
-      ))
-  }
   render() {
     const { song } = this.props.data;
     if (!song) return <div>Loading</div>
@@ -18,9 +13,8 @@ class SongDetail extends PureComponent {
       <div>
         <Link to='/'>Back</Link>
         <h3>{song.title}</h3>
-        <ul>
-          {this.renderLyrics()}
-        </ul>
+        <LyricList
+          lyrics={this.props.data.song.lyrics}/>
         <LyricCreateForm
           songId={song.id}/>
       </div>
