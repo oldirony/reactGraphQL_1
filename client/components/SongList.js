@@ -10,7 +10,7 @@ class SongList extends PureComponent {
       <li
         key={id}
         className="collection-item">
-        {title}
+        <Link to={`/songs/detail/${id}`}>{title}</Link>
         <i
           className='material-icons'
           onClick={this.handleDeleteClick.bind(this, id)}
