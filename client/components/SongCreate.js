@@ -28,9 +28,9 @@ class SongCreate extends PureComponent {
       variables: {
         title: this.state.songTitle,
       },
-      refetchQueries: [{
-        query: fetchSongsQuery,
-      }]
+      //refetchQueries: [{
+      //  query: fetchSongsQuery,
+      //}]
     }).then(this.handleSongAdded.bind(this))
   }
 
