@@ -35,12 +35,7 @@ class LyricCreateForm extends PureComponent {
       variables: {
         songId: this.props.songId,
         content: this.state.value,
-      },
-      refetchQueries: [
-        {
-          query: fetchSong,
-        }
-      ]
+      }
     }).then(() => this.setState({ content: '' }))
   }
 }
@@ -54,6 +49,7 @@ const mutation = gql`
     addLyricToSong(content:$content, songId:$songId) {
       id,
       lyrics {
+        id
         content
       }
     }

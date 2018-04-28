@@ -6,7 +6,9 @@ import { ApolloProvider } from 'react-apollo'
 import { HashRouter as Router, Route } from 'react-router-dom'
 import App from "./components/App"
 
-const client = new ApolloClient({})
+const client = new ApolloClient({
+  dataIdFromObject: o => o.id
+})
 
 const Root = () => (
   <ApolloProvider
