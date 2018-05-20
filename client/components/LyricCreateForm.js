@@ -2,7 +2,6 @@ import React, {PureComponent} from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import propTypes from 'prop-types'
-import fetchSong from '../queries/fetchSong'
 
 class LyricCreateForm extends PureComponent {
   constructor() {
@@ -36,7 +35,7 @@ class LyricCreateForm extends PureComponent {
         songId: this.props.songId,
         content: this.state.value,
       }
-    })//.then(() => this.setState({ value: '' }))
+    }).then(() => this.setState({ value: '' }))
   }
 }
 
@@ -51,6 +50,7 @@ const mutation = gql`
       lyrics {
         id
         content
+        likes
       }
     }
   }
