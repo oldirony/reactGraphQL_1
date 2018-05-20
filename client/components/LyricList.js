@@ -4,9 +4,17 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 
 class LyricList extends PureComponent {
-  onLike(id) {
+  onLike(id, currentLikes) {
     this.props.mutate({
       variables: {id},
+      optimisticResponse: {
+        __typename: 'Mutation',
+        likeLyric: {
+          id,
+          __typename: 'LyricType',
+          likes: currentLikes + 1
+        }
+      }
     })
   }
 
@@ -22,7 +30,7 @@ class LyricList extends PureComponent {
                 <span className="vote-box__content">{content}</span>
                 <i
                   className='material-icons'
-                  onClick={() => this.onLike(id)}>thumb_up</i>
+                  onClick={() => this.onLike(id, likes)}>thumb_up</i>
                 {likes}
               </div>
             </li>
