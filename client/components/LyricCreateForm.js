@@ -36,7 +36,7 @@ class LyricCreateForm extends PureComponent {
         songId: this.props.songId,
         content: this.state.value,
       }
-    }).then(() => this.setState({ content: '' }))
+    })//.then(() => this.setState({ value: '' }))
   }
 }
 

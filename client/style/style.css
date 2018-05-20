@@ -11,3 +11,18 @@
 .collection-item .material-icons:hover {
 	color: #4f6567;
 }
+
+.vote-box {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.vote-box__content {
+	margin-right: auto;
+}
+
+.material-icons {
+	margin-right: 5px;
+	cursor: pointer;
+}

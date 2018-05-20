@@ -1,10 +1,10 @@
-import React, {PureComponent} from 'react'
+import React, { Component} from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Link, Redirect } from 'react-router-dom'
 import fetchSongsQuery from '../queries/fetchSongs'
 
-class SongCreate extends PureComponent {
+class SongCreate extends  Component {
   constructor() {
     super()
     this.state = {
@@ -28,9 +28,9 @@ class SongCreate extends PureComponent {
       variables: {
         title: this.state.songTitle,
       },
-      //refetchQueries: [{
-      //  query: fetchSongsQuery,
-      //}]
+      refetchQueries: [{
+        query: fetchSongsQuery,
+      }]
     }).then(this.handleSongAdded.bind(this))
   }
 
